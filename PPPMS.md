@@ -1,6 +1,8 @@
 # PPPMS - Python Picture Polaroid Management System
 Software to manage a signed polaroid from a host - every 3 months
-7(?) Hosts and 835 patrons as of writing. Minimum of 7 and maximum of 5,845 polaroids possible.
+7(?) Hosts and 835 patrons as of writing.
+Minimum of 7 and maximum of 5,845 polaroids possible.
+
 # Hosts
 Will, Kevin, Nigel, Bernard, Alan, Jabril, Peter, ???
 
