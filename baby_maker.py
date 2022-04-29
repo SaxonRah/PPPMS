@@ -1,9 +1,5 @@
 # Generate CSV of people to test PPPMS - Python Picture Polaroid Management System
-
-# Name,Email,Twitter,Discord,Patron Status,Follows You,Lifetime Amount,Pledge Amount,Charge Frequency,Tier
-# Addressee,Street,City,State,Zip,Country,Phone,Patronage Since Date,Last Charge Date,Last Charge Status
-# Additional Details,User ID,Last Updated,Currency,Max Posts,Access Expiration,Next Charge Date
-
+# Run this python file to generate a babies.csv file.
 
 import random
 import csv
@@ -17,11 +13,21 @@ def make_baby():
     __result = fake.boolean()
     __tier = 'Big Brain' if __result else "Galaxy Brain"
     __amount = 5 if __result else 15
+
+    """
+    Maybe make this data below more coherent. Data values should be consistent in relation to other data values.
+    For example: Tier calculations above simulates real data but incorrectly for the rest.
+    The code below is ignorant to the values it generates. It can make an inactive account with active dates, 
+    invalid amounts, wrong access_expiration dates, ect.
+    
+    Not sure if it's worth it because, filtering patrons should be easy by just looking at tier, patron status,
+    patronage_since_date, ect. to confirm a polaroid should be sent. So making better test data might not be so useful.
+    """
     name = fake.name_female() if fake.boolean() else fake.name_male()
     email = fake.safe_email()
     twitter = __username
     discord = __username
-    patron_status = "Activated" if fake.boolean() else "Deactivated"
+    patron_status = "Active" if fake.boolean() else "Inactive"
     follows_you = 'No' if fake.boolean() else "Yes"
     lifetime_amount = random.randint(1, 3) * __amount
     pledge_amount = __amount
@@ -54,7 +60,7 @@ def make_baby():
     return baby
 
 
-def breed(patrons=1000):
+def breed(patrons=1024):
     header = ['Name', 'Email', 'Twitter', 'Discord', 'Patron Status',
               'Follows You', 'Lifetime Amount', 'Pledge Amount', 'Charge Frequency',
               'Tier', 'Addressee', 'Street', 'City', 'State', 'Zip', 'Country', 'Phone',
@@ -76,4 +82,4 @@ def breed(patrons=1000):
 
 
 if __name__ == "__main__":
-    breed()
+    breed(512)

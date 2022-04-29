@@ -1,6 +1,6 @@
 import csv
 
-# TODO: Parse CSV in compliance with chosen polaroid distribution method.
+# TODO: Parse CSV in compliance with chosen polaroid distribution method. Random? AllPool? Featured?
 
 
 def test_babies():
